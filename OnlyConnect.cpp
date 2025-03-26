@@ -1,19 +1,23 @@
-/* File: OnlyConnect.cpp
- *
- * TODO: Edit these comments to describe anything interesting or noteworthy in your implementation.
- *
- * TODO: Edit these comments to leave a puzzle for your section leader to solve!
- */
 #include "OnlyConnect.h"
+#include "strlib.h"     // For toUpperCase
+#include "cctype"       // For isalpha
 using namespace std;
 
+bool isConsonant(char ch) {
+    ch = toUpperCase(string(1, ch))[0]; // Convert to uppercase
+    return isalpha(ch) && !(ch == 'A' || ch == 'E' || ch == 'I' || ch == 'O' || ch == 'U');
+}
+
 string onlyConnectize(string phrase) {
-    /* TODO: The next few lines just exist to make sure you don't get compiler
-     * warning messages when this function isn't implemented. Delete this
-     * comment and the next few lines, then implement this function.
-     */
-    (void) phrase;
-    return "";
+    if (phrase.empty()) return "";
+
+    char first = toUpperCase(string(1, phrase[0]))[0];
+
+    if (isConsonant(phrase[0])) {
+        return string(1, first) + onlyConnectize(phrase.substr(1));
+    } else {
+        return onlyConnectize(phrase.substr(1));
+    }
 }
 
 
@@ -48,7 +52,14 @@ PROVIDED_TEST("Converts lower-case to upper-case.") {
  *
  * Happy testing!
  */
-
+PROVIDED_TEST("Checking symbols") {
+    EXPECT_EQUAL(onlyConnectize("?!#$%^"), "");
+    EXPECT_EQUAL(onlyConnectize("**^^%%"), "");
+}
+PROVIDED_TEST("Checking numbers") {
+    EXPECT_EQUAL(onlyConnectize("1147385969493755"), "");
+    EXPECT_EQUAL(onlyConnectize("8349738976834"), "");
+}
 
 
 

@@ -2,17 +2,20 @@
  * someone reading them for the first time. In this case, though, it's a space
  * for you to write down answers to the three questions asked in this section.
  *
- * Q1:
+ * Q1: It once came to pass that the polymath Ismail al-Jazan was reciting poetry,
+ * when suddenly Keti saved Itchan Kala from certain destruction without breaking a sweat.
+ * THE END!
  *
  *
  *
  *
- * Q2:
+ * Q2: When I ran the program without the debugger it crashed and gave me the
+ * error message.
  *
  *
  *
  *
- * Q3:
+ * Q3: 209 -> 89 -> 599 -> 502 -> 70 -> 459 -> 849
  *
  *
  *
@@ -28,7 +31,7 @@ using namespace std;
 /* TODO: Fill this in with your name before reading the story. Otherwise
  * you'll get the wrong story!
  */
-const string MyName = "(Your Name Here)";
+const string MyName = "Keti";
 
 namespace {
     void theEnd() {
